@@ -1,0 +1,17 @@
+{
+    "name": "DoubTech.Splines.Editor",
+    "references": [
+        "GUID:defaade1afb0fae45a86bb690536cdb4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
