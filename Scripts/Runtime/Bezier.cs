@@ -22,6 +22,14 @@ namespace DoubTech.Splines
 				2f * t * (p2 - p1);
 		}
 
+
+		public static Vector3 GetSecondDerivative(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
+		{
+
+
+			return (6*t*(p1 + 3*(p2 - p3) - p0) + 6*(p0 - 2*p2 + p3));
+		}
+
 		public static Vector3 GetPoint(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t)
 		{
 			t = Mathf.Clamp01(t);

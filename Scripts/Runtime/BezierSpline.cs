@@ -202,6 +202,59 @@ namespace DoubTech.Splines
 			return GetVelocity(t).normalized;
 		}
 
+		public Vector3 GetNormal(float t)
+		{
+			var tangent = GetTangent(t);
+			var normalOr = Vector3.Cross(tangent, Vector3.up).normalized;
+
+			return normalOr;
+		}
+
+
+		public Vector3 GetAcceleration(float t)
+		{
+			int i;
+			if (t >= 1f)
+			{
+				t = 1f;
+				i = points.Length - 4;
+			}
+			else
+			{
+				t = Mathf.Clamp01(t) * CurveCount;
+				i = (int) t;
+				t -= i;
+				i *= 3;
+			}
+
+			return Bezier.GetSecondDerivative(points[i], points[i + 1], points[i + 2],
+				points[i + 3], t).normalized;
+
+		}
+
+
+
+		public Vector3 GetTangent(float t)
+		{
+			int i;
+			if (t >= 1f)
+			{
+				t = 1f;
+				i = points.Length - 4;
+			}
+			else
+			{
+				t = Mathf.Clamp01(t) * CurveCount;
+				i = (int) t;
+				t -= i;
+				i *= 3;
+			}
+
+			return
+				Bezier.GetFirstDerivative(points[i], points[i + 1], points[i + 2],
+					points[i + 3], t).normalized;
+		}
+
 		public void AddCurve()
 		{
 			Vector3 point = points[points.Length - 1];
