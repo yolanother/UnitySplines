@@ -12,6 +12,8 @@ namespace DoubTech.Splines
 
 		[SerializeField] private bool loop;
 
+		public Vector3[] Points => points;
+
 		public bool Loop
 		{
 			get { return loop; }

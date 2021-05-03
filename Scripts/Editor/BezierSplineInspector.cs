@@ -9,8 +9,8 @@ namespace DoubTech.Splines
 
 		private const int stepsPerCurve = 10;
 		private const float directionScale = 0.5f;
-		private const float handleSize = 0.04f;
-		private const float pickSize = 0.06f;
+		private const float handleSize = 0.06f;
+		private const float pickSize = 0.08f;
 
 		private static Color[] modeColors =
 		{
@@ -121,7 +121,7 @@ namespace DoubTech.Splines
 			}
 
 			Handles.color = modeColors[(int) spline.GetControlPointMode(index)];
-			if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.DotCap))
+			if (Handles.Button(point, handleRotation, size * handleSize, size * pickSize, Handles.SphereHandleCap))
 			{
 				selectedIndex = index;
 				Repaint();
